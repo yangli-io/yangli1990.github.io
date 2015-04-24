@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>Squares!</title>
 		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 		<style>
 			html, body{
@@ -43,6 +42,17 @@
 				margin: 20px;
 				background-color: #FD9090;
 				color: #FFCACA;
+			}
+
+			#restart{
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			#restart button{
+				padding: 5px;
+				border-radius: 5px;
+				background-color: green;
 			}
 		</style>
 		<script>
@@ -96,14 +106,24 @@
 			$('#points span').text('points: ' + points);
 		}	
 
+		function restart(){
+			points = 0;
+			$('#points span').text('points: ' + points);
+			level = 0;
+			addSquares(2)
+		}
 		</script>
 	</head>
 	<body>
 		<div id="points">
 			<span>points: 0</span>
 		</div>
+		<div id="restart">
+			<button onclick="restart()">Restart</button>
+		</div>
 		<div style="text-align: center">
 		  <div id="box"></div>
 		</div>
+		
 	</body>
 </html>
