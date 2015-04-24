@@ -72,8 +72,8 @@
 			var color = [colorPixel(diff), colorPixel(diff), colorPixel(diff)];
 			var boxDom = $('#box'), width = 100/num, boxes = num * num;
 			var borderWidth = 5 - num / 3 + 1;
-			var style = "width: {percent}%; height: {percent}%; background-color: rgb({color}); border-width: {borderWidth}px; border-radius: {borderWidth}px;"
-			style = style.split('{percent}').join(width).split('{borderWidth}').join(borderWidth);
+			var style = "width: {percent}%; height: {percent}%; background-color: rgb({color}); border-width: {borderWidth}px; border-radius: {borderRadius}px;"
+			style = style.split('{percent}').join(width).replace('{borderWidth}', borderWidth).replace('{borderRadius}', 3*borderWidth);
 			var normStyle = style.replace('{color}', color.join(','));
 			boxDom.empty(); //empty box
 			var specialColor = color.map(function(val){
