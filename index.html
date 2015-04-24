@@ -71,11 +71,11 @@
 			diff = diff < LOWEST_DIFF ? LOWEST_DIFF : diff;
 			var color = [colorPixel(diff), colorPixel(diff), colorPixel(diff)];
 			var boxDom = $('#box'), width = 100/num, boxes = num * num;
-			var padding = 10 - num / 2 + 0.5;
-			var style = "width: {percent}%; height: {percent}%; background-color: rgb({color}); padding: {padding}px;"
+			var borderWidth = 5 - num / 4 + 0.5;
+			var style = "width: {percent}%; height: {percent}%; background-color: rgb({color}); border-width: {borderWidth}px;"
 			style = style.split('{percent}').join(width);
 			var normStyle = style.replace('{color}', color.join(','));
-			var normStyle = normStyle.replace('{padding}', padding);
+			var normStyle = normStyle.replace('{borderWidth}', borderWidth);
 			boxDom.empty(); //empty box
 			var specialColor = color.map(function(val){
 				return val + diff;
