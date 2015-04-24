@@ -56,8 +56,8 @@
 			}
 		</style>
 		<script>
-		const LOWEST_DIFF = 2;
-		const MAXSQUARES = 20;
+		const LOWEST_DIFF = 3;
+		const MAXSQUARES = 15;
 
 		var level = 0;
 		var points = 0;
@@ -71,11 +71,10 @@
 			diff = diff < LOWEST_DIFF ? LOWEST_DIFF : diff;
 			var color = [colorPixel(diff), colorPixel(diff), colorPixel(diff)];
 			var boxDom = $('#box'), width = 100/num, boxes = num * num;
-			var borderWidth = 5 - num / 4 + 0.5;
+			var borderWidth = 4 - num / 3 + 1;
 			var style = "width: {percent}%; height: {percent}%; background-color: rgb({color}); border-width: {borderWidth}px;"
-			style = style.split('{percent}').join(width);
+			style = style.split('{percent}').join(width).replace('{borderWidth}', borderWidth);
 			var normStyle = style.replace('{color}', color.join(','));
-			var normStyle = normStyle.replace('{borderWidth}', borderWidth);
 			boxDom.empty(); //empty box
 			var specialColor = color.map(function(val){
 				return val + diff;
